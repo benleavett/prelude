@@ -3,9 +3,13 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        paredit-wrap-round
         sp-backward-delete-char
+        sp-forward-sexp
         ))
 
 (setq mc/cmds-to-run-once
       '(
+        cider-eval-defun-at-point
+        smex
         ))
