@@ -31,8 +31,6 @@
 (set-frame-parameter (selected-frame) 'alpha '(90 90))
 (add-to-list 'default-frame-alist '(alpha 90 90))
 
-(set-face-background 'hl-line "#222222")
-
 ;;; Sloppy focus
 (setq mouse-autoselect-window t)
 
@@ -79,6 +77,8 @@
 (add-hook 'clojure-mode-hook (lambda ()
                                (clj-refactor-mode 1)
                                (cljr-add-keybindings-with-prefix "C-c C-m")
+                               (smartparens-mode 0)
+                               (paredit-mode 1)
                                (define-key clojure-mode-map
                                  (kbd "C-q") 'align-cljlet)))
 
