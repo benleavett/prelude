@@ -36,7 +36,7 @@
 
 ;; Custom key bindings
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-<") 'mc/unmark-next-like-this)
 
 ;;; Make M-SPC multiline by default
 (global-set-key (kbd "M-SPC") (lambda () (interactive) (just-one-space -1)))
