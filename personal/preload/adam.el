@@ -20,14 +20,6 @@
   (when (not (package-installed-p p))
     (package-install p)))
 
-(custom-set-faces
- '(default ((t (:background "black"
-                            :foreground "white"
-                            :weight normal
-                            :height 80
-                            :width normal
-                            :family "DejaVu Sans Mono")))))
-
 (set-frame-parameter (selected-frame) 'alpha '(90 90))
 (add-to-list 'default-frame-alist '(alpha 90 90))
 
