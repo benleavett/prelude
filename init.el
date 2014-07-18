@@ -80,14 +80,6 @@ by Prelude.")
 (add-to-list 'load-path prelude-modules-dir)
 (add-to-list 'load-path prelude-vendor-dir)
 (prelude-add-subfolders-to-load-path prelude-vendor-dir)
-(add-to-list 'default-frame-alist '(left . 0))
-(add-to-list 'default-frame-alist '(top . 0))
-(add-to-list 'default-frame-alist '(height . 90))
-(add-to-list 'default-frame-alist '(width . 140))
-
-(add-to-list 'load-path "~/.emacs.d/window-number")
-(require 'window-number)
-(window-number-meta-mode)
 
 ;; reduce the frequency of garbage collection by making it happen on
 ;; each 50MB of allocated data (the default is on every 0.76MB)

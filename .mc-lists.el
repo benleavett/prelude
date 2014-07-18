@@ -10,6 +10,11 @@
 
 (setq mc/cmds-to-run-once
       '(
+        c-electric-semi&comma
         cider-eval-defun-at-point
+        mouse-delete-other-windows
+        mouse-set-region
+        mouse-yank-primary
         smex
+        sp--self-insert-command
         ))

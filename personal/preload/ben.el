@@ -20,11 +20,14 @@
   (when (not (package-installed-p p))
     (package-install p)))
 
-(set-frame-parameter (selected-frame) 'alpha '(90 90))
-(add-to-list 'default-frame-alist '(alpha 90 90))
+(set-frame-parameter (selected-frame) 'alpha '(100 90))
+(add-to-list 'default-frame-alist '(alpha 100 90))
 
 ;;; Sloppy focus
 (setq mouse-autoselect-window t)
+
+;;; Don't open files in separate windows
+(setq ns-pop-up-frames nil)
 
 ;; Custom key bindings
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
@@ -44,6 +47,8 @@
 (setq prelude-guru nil)
 (setq prelude-flyspell nil)
 (setq prelude-whitespace nil)
+
+(customize-variable (quote tab-stop-list))
 
 (disable-theme 'zenburn)
 
@@ -77,4 +82,21 @@
 
 (xterm-mouse-mode)
 
+(add-to-list 'default-frame-alist '(left . 0))
+(add-to-list 'default-frame-alist '(top . 0))
+
+;; with monitor
+(add-to-list 'default-frame-alist '(height . 100))
+(add-to-list 'default-frame-alist '(width . 160))
+
+;; no monitor
+;(add-to-list 'default-frame-alist '(height . 50))
+;(add-to-list 'default-frame-alist '(width . 160))
+
+(add-to-list 'load-path "~/.emacs.d/window-number")
+(require 'window-number)
+
+(window-number-meta-mode)
+
+(desktop-save-mode 1)
 ;;
