@@ -93,6 +93,26 @@
 ;(add-to-list 'default-frame-alist '(height . 50))
 ;(add-to-list 'default-frame-alist '(width . 160))
 
+(eval-after-load "grep"
+  '(grep-compute-defaults))
+
+(defun find-git-root (&optional dir)
+  (unless dir (setq dir (expand-file-name (file-name-directory (buffer-file-name)))))
+  (let ((parent (expand-file-name ".." dir)))
+    (unless (equal parent dir)
+      (if (file-exists-p (expand-file-name ".git" dir))
+          dir
+        (find-git-root parent)))))
+
+(defun rgrep-token-under-point-in-project-root-dir ()
+  (interactive)
+  (rgrep (current-word) 
+         (concat "*." (file-name-extension (buffer-file-name)))
+         (find-git-root))
+  (switch-to-buffer-other-frame "*grep*"))
+
+(global-set-key (kbd "M-#") 'rgrep-token-under-point-in-project-root-dir)
+
 (add-to-list 'load-path "~/.emacs.d/window-number")
 (require 'window-number)
 
